@@ -17,31 +17,22 @@ public class Employee {
     }
 
     public double getTotalPay(){
-         if (hoursWorked > 40){
-            double regPay = 40 * payRate;
-            float otHours = hoursWorked - 40;
-            double otPay = payRate * 1.5 * otHours;
-            return regPay + otPay;
-        }
-         else {
-             return this.payRate * this.hoursWorked;
-         }
+        return getRegulaPay() + getOvertimePay();
+    }
+
+    public double getRegulaPay(){
+        return getRegularHours() * payRate;
+    }
+
+    public double getOvertimePay(){
+        return getOvertimeHours() * payRate * 1.5;
     }
 
     public float getRegularHours(){
-//        float regHours = 40;
-//        if (this.hoursWorked <= regHours){
-//            regHours = this.hoursWorked;
-//        }
-        return 0;
+        return (hoursWorked > 40) ? 40 : hoursWorked;
     }
 
-    public float overtimeHours(){
-//        float otHours = 0;
-//        if (this.hoursWorked > 40){
-//            otHours = this.hoursWorked - 40;
-//        }
-        return 0;
+    public float getOvertimeHours() {
+        return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
-
 }
