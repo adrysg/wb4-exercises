@@ -6,9 +6,9 @@ public class Employee {
     private String name;
     private String department;
     private double payRate;
-    private int hoursWorked;
+    private float hoursWorked;
 
-    public Employee(int employeeID, String name, String department,double payRate, int hoursWorked){
+    public Employee(int employeeID, String name, String department,double payRate, float hoursWorked){
         this.employeeID = employeeID;
         this.name = name;
         this.department = department;
@@ -17,34 +17,31 @@ public class Employee {
     }
 
     public double getTotalPay(){
-        double totalPay = 0;
-
-        if (hoursWorked <= 40){
-            totalPay = this.payRate * this.hoursWorked;
+         if (hoursWorked > 40){
+            double regPay = 40 * payRate;
+            float otHours = hoursWorked - 40;
+            double otPay = payRate * 1.5 * otHours;
+            return regPay + otPay;
         }
-        else if (hoursWorked > 40){
-            double grossPay = this.hoursWorked * this.payRate;
-            double otHours = this.hoursWorked - 40;
-            double otPay = this.payRate * 1.5 * otHours;
-            totalPay = grossPay + otPay;
-        }
-        return totalPay;
+         else {
+             return this.payRate * this.hoursWorked;
+         }
     }
 
-    public int getRegularHours(){
-        int regHours = 40;
-        if (this.hoursWorked <= regHours){
-            regHours = this.hoursWorked;
-        }
-        return regHours;
+    public float getRegularHours(){
+//        float regHours = 40;
+//        if (this.hoursWorked <= regHours){
+//            regHours = this.hoursWorked;
+//        }
+        return 0;
     }
 
-    public int overtimeHours(){
-        int otHours = 0;
-        if (this.hoursWorked > 40){
-            otHours = this.hoursWorked - 40;
-        }
-        return otHours;
+    public float overtimeHours(){
+//        float otHours = 0;
+//        if (this.hoursWorked > 40){
+//            otHours = this.hoursWorked - 40;
+//        }
+        return 0;
     }
 
 }
