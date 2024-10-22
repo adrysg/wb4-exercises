@@ -34,15 +34,21 @@ public class Room {
         return ( !this.isDirty() && !this.isOccupied() );
     }
 
-    public boolean checkIn(){
-        return (!this.isAvailable() && this.isDirty() && this.isOccupied() );
+    public void checkIn(){
+        if (!occupied && !dirty){
+            this.dirty = true;
+            this.occupied = true;
+        }
     }
 
-    public boolean checkOut(){
-        return (isDirty() ? isDirty() : isAvailable() );
+    public void checkOut(){
+        this.occupied = false;
+        this.dirty = true;
     }
 
-    public boolean cleanRoom(){
-        return ( !this.isOccupied() && this.isDirty() );
+    public void cleanRoom(){
+            this.dirty = false;
+        }
+
     }
-}
+

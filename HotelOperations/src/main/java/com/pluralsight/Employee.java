@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+import java.util.TimeZone;
+
 public class Employee {
 
     private int employeeID;
@@ -35,4 +38,14 @@ public class Employee {
     public float getOvertimeHours() {
         return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
+
+    public void punchIn(double time){
+
+    }
+
+    public void punchOut(double time){
+
+    }
+
+
 }
