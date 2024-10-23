@@ -60,6 +60,4 @@ public class Reservation {
         return this.getPrice() * this.numberOfNights;
     }
 
-
-
 }

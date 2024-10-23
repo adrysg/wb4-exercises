@@ -1,9 +1,8 @@
 package com.pluralsight;
-
-import java.time.LocalDateTime;
-import java.util.TimeZone;
+import java.util.Scanner;
 
 public class Employee {
+    Scanner Scanner = new Scanner(System.in);
 
     private int employeeID;
     private String name;
@@ -40,11 +39,12 @@ public class Employee {
     }
 
     public void punchIn(double time){
-
+        System.out.println(time);
     }
 
     public void punchOut(double time){
-
+        time = punchIn() - punchOut(time);
+        System.out.println(time);
     }
 
 

@@ -39,6 +39,9 @@ public class Room {
             this.dirty = true;
             this.occupied = true;
         }
+        else {
+            System.out.println("Sorry, unable to check in.");
+        }
     }
 
     public void checkOut(){
