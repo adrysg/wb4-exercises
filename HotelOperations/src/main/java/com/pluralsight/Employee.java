@@ -9,8 +9,10 @@ public class Employee {
     private String department;
     private double payRate;
     private float hoursWorked;
+    private double punchInTime;
+    private double punchOutTime;
 
-    public Employee(int employeeID, String name, String department,double payRate, float hoursWorked){
+    public Employee(int employeeID, String name, String department, double payRate, float hoursWorked) {
         this.employeeID = employeeID;
         this.name = name;
         this.department = department;
@@ -18,19 +20,19 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    public double getTotalPay(){
+    public double getTotalPay() {
         return getRegulaPay() + getOvertimePay();
     }
 
-    public double getRegulaPay(){
+    public double getRegulaPay() {
         return getRegularHours() * payRate;
     }
 
-    public double getOvertimePay(){
+    public double getOvertimePay() {
         return getOvertimeHours() * payRate * 1.5;
     }
 
-    public float getRegularHours(){
+    public float getRegularHours() {
         return (hoursWorked > 40) ? 40 : hoursWorked;
     }
 
@@ -38,14 +40,19 @@ public class Employee {
         return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
 
-    public void punchIn(double time){
-        System.out.println(time);
+    public double punchIn(double time) {
+        punchInTime = time;
+        return punchInTime;
     }
 
-    public void punchOut(double time){
-        time = punchIn() - punchOut(time);
-        System.out.println(time);
+    public double punchOut(double time) {
+        punchOutTime = time;
+        hoursWorked = (float) (punchOutTime - punchInTime);
+        return punchOutTime + hoursWorked;
     }
+
+
+
 
 
 }
