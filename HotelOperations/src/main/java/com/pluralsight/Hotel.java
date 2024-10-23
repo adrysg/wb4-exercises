@@ -30,7 +30,7 @@ public class Hotel {
             if(numberOfRooms > getAvailableSuites()){
                 return false;
             }
-            else { //
+            else {
                 bookedSuites += numberOfRooms;
                 return true;
             }

@@ -51,8 +51,4 @@ public class Employee {
         return punchOutTime + hoursWorked;
     }
 
-
-
-
-
 }
